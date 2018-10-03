@@ -1,11 +1,21 @@
 // setup server
 // YOUR CODE
 
+var express = require('express');
+var app     = express();
+var low     = require('lowdb');
+var fs      = require('lowdb/adapters/FileSync');
+var adapter = new fs('db.json');
+var db      = low(adapter);
+
 // setup directory used to serve static files
 // YOUR CODE
+app.use(express.static('public'));
 
 // setup data store
+db.defaults({posts: []}).write();
 // YOUR CODE
+
 
 // required data store structure
 // YOUR CODE
@@ -66,4 +76,8 @@ app.get('/account/all', function (req, res) {
 
     // YOUR CODE
     // Return data for all accounts
+});
+
+app.listen(3000, function(){
+    console.log('Running on port: 3000')
 });
