@@ -1,16 +1,40 @@
 var ui = {};
 
 ui.navigation = `
-<nav aria-label="breadcrumb">
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="#" onclick="loadCreateAccount()">Create Account</a></li>
-    <li class="breadcrumb-item"><a href="#" onclick="loadLogin()">Login</a></li>
-    <li class="breadcrumb-item"><a href="#" onclick="loadDeposit()">Deposit</a></li>
-    <li class="breadcrumb-item"><a href="#" onclick="loadWithdraw()">Withdraw</a></li>
-    <li class="breadcrumb-item"><a href="#" onclick="loadTransactions()">Transactions</a></li>
-    <li class="breadcrumb-item"><a href="#" onclick="loadBalance()">Load Balance</a></li>
-    <li class="breadcrumb-item"><a href="#" onclick="loadAllData()">All Data</a></li>
-  </ol>
+
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <a class="navbar-brand" href="#">RadBank</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-label="Toggle Navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ol class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="#" onclick="defaultModule()">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#" onclick="loadCreateAccount()">Create Account</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#" onclick="loadLogin()">Login</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#" onclick="loadDeposit()">Deposit</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#" onclick="loadWithdraw()">Withdraw</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#" onclick="loadTransactions()">Transactions</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#" onclick="loadBalance()">Show Balance</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#" onclick="loadAllData()">Show all data</a>
+            </li>
+        </ol>
+    </div>
 </nav>
     `;
 
@@ -18,8 +42,11 @@ ui.createAccount = `
 <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
   <div class="card-header">Create Account</div>
   <div class="card-body">
-    <h5 class="card-title">Primary card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <input type="input" id="addUserName" placeholder="Name"><br><br>
+    <input type="input" id="addEmail" placeholder="E-Mail Address"><br><br>
+    <input type="password" id="addPassword" placeholder="Password"><br><br>
+    <input type="password" id="checkPassword" placeholder="Confirm Password"><br><br>
+    <button type="button" class="btn btn-info" onclick="addAccount()">Create</button>
   </div>
 </div>
     <!-- ------------- YOUR CODE: Create Account UI ------------- --> 
@@ -81,6 +108,13 @@ ui.balance = `
 `;
 
 ui.default = `
+<div class="card bg-light mb-3" style="max-width: 18rem;">
+  <div class="card-header">RadBank Landing Module</div>
+  <div class="card-body">
+    <h5 class="card-title">Welcome to the Bank</h5>
+    <p class="card-text">You can move around using the navigation menu.</p>
+  </div>
+</div>
     <!-- ------------- YOUR CODE: Default UI ------------- --> 
 `;
 
