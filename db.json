@@ -1,1 +1,13 @@
-{accounts:[]}
+{
+  "accounts": [
+    {
+      "name": "R",
+      "email": "r@mail.com",
+      "balance": 0,
+      "password": "pass",
+      "transactions": [
+        "Account Created"
+      ]
+    }
+  ]
+}

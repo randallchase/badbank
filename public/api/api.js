@@ -1,6 +1,24 @@
 
 function create() {
+    var obj = {
+        name    : document.getElementById("addUserName").value,
+        email   : document.getElementById("addEmail").value,
+        password: document.getElementById("addPassword").value};
 
+    var url = "/accounts/create/" + obj.name + "/" + obj.email + "/" + obj.password;
+
+    superagent
+        .get(url)
+        .end(function(err, res){
+            if(err){
+                console.log(err);
+            }
+            else{
+                console.log(res);
+                status.innerHTML = JSON.stringify(res.body);
+            }
+
+        });
     // -------------------------------------
     //  YOUR CODE
     //  Create user account on server

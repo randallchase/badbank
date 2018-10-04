@@ -13,7 +13,7 @@ var db      = low(adapter);
 app.use(express.static('public'));
 
 // setup data store
-db.defaults({posts: []}).write();
+db.defaults({accounts: []}).write();
 // YOUR CODE
 
 
@@ -33,6 +33,15 @@ db.defaults({posts: []}).write();
 
 app.get('/accounts/create/:name/:email/:password', function (req, res) {
 
+    var newAccount = {'name'        : req.params.name,
+                      'email'       : req.params.email,
+                      'balance'     : 0,
+                      'password'    : req.params.password,
+                      'transactions': ['Account Created']};
+
+    db.get('accounts').push(newAccount).write();
+    console.log(db.get('accounts').value());
+    res.send(db.get('accounts').value());
     // YOUR CODE
     // Create account route
     // return success or failure string
