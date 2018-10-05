@@ -10,6 +10,11 @@
           "action": "create",
           "amount": "0",
           "timestamp": "2018-10-05T05:23:12.855Z"
+        },
+        {
+          "action": "login",
+          "amount": 0,
+          "timestamp": "2018-10-05T14:46:10.206Z"
         }
       ]
     },
@@ -23,6 +28,32 @@
           "action": "create",
           "amount": "0",
           "timestamp": "2018-10-05T05:30:18.728Z"
+        }
+      ]
+    },
+    {
+      "name": "R",
+      "email": "a@mail",
+      "balance": 0,
+      "password": "pass",
+      "transactions": [
+        {
+          "action": "create",
+          "amount": 0,
+          "timestamp": "2018-10-05T14:24:53.839Z"
+        }
+      ]
+    },
+    {
+      "name": "R",
+      "email": "b@mail",
+      "balance": 0,
+      "password": "pass",
+      "transactions": [
+        {
+          "action": "create",
+          "amount": 0,
+          "timestamp": "2018-10-05T14:36:32.479Z"
         }
       ]
     }

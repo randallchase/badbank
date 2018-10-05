@@ -41,17 +41,20 @@ function login() {
     var obj = {
         email   : document.getElementById("inputEmail").value,
         password: document.getElementById("inputPassword").value};
-    var url = "/accounts/login/" + obj.name + "/" +obj.email;
+    var url = "/accounts/login/" + obj.email + "/" +obj.password;
 
 
     superagent
         .get(url)
-        .end(function(err, res) {
-            if (err) {
+        .end(function(err, res){
+            if(err){
                 console.log(err);
                 status.innerHTML = res.text;
-            } else {
-                status.innerHTML = 'Login Complete';
+            }
+            else{
+                console.log(res);
+                status.innerHTML = res.text;
+
             }
         });
     // -------------------------------------

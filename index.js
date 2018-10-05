@@ -44,25 +44,44 @@ function postTime() {
     return timestamp
 };
 
+function logTransaction (dbase, email, action, amount) {
+
+    function postTime() {
+    var date = new Date();
+    var timestamp = date.toISOString();
+    return timestamp
+    };
+
+    var transaction  = {'action'     : action,
+                       'amount'     : amount,
+                       'timestamp'  : postTime()}
+    dbase.get('accounts')
+        .find({email: email})
+        .get('transactions')
+        .push(transaction)
+        .write();
+
+}
+
 function checkAccounts (emailIn) {
     return db.get('accounts').find({email:emailIn}).value() === undefined
 };
+
 
 app.get('/accounts/create/:name/:email/:password', function (req, res) {
     var newAccount = {'name'        : req.params.name,
                       'email'       : req.params.email,
                       'balance'     : 0,
                       'password'    : req.params.password,
-                      'transactions': [{'action'    : 'create',
-                                        'amount'    : '0',
-                                        'timestamp' : postTime()}]};
+                      'transactions': []};
     if (checkAccounts(newAccount.email)) {
         db.get('accounts').push(newAccount).write();
+        logTransaction(db, newAccount.email, 'create', 0);
         console.log(db.get('accounts').value());
-        res.send(db.get('accounts').value());
+        res.send('Success! Account Created.');
     } else {
-        console.log('Account exists')
-        res.send('Account already exists')
+        console.log('Account exists');
+        res.send('Account already exists. Please login or try a different email.')
     }
 
     // YOUR CODE
@@ -75,15 +94,12 @@ app.get('/accounts/login/:email/:password', function (req, res) {
                      'password': req.params.password}
     var account = db.get('accounts').find({email   : loginAcct.email,
                                            password: loginAcct.password}).value();
-    if (account === undefined) {
-        res.send('This username/password combo does not exist. Please try again.');
+    if (account !== undefined) {
+        logTransaction(db, loginAcct.email, 'login', 0);
+        console.log(db.get('accounts').value());
+        res.send('Login Complete')
     } else {
-        var loginTransaction = {'action'    : 'login',
-                                'amount'    : 0,
-                                'timestamp' : postTime()};
-        db.get('accounts').find({email   : loginAcct.email,
-                                 password: loginAcct.password}).get('transactions').push(loginTransaction).write();
-        res.send(account);
+        res.send('This username/password combo does not exist. Please try again.');
     }
 
     // YOUR CODE
@@ -99,7 +115,16 @@ app.get('/accounts/get/:email', function (req, res) {
 });
 
 app.get('/accounts/deposit/:email/:amount', function (req, res) {
+    var dep = {'email'  : req.params.email,
+               'amount' : req.params.amount};
+    var account =  db.get('accounts').find({email: dep.email}).value();
 
+
+    if (account === undefined) {
+        res.send('This account does not exist. Please try again.')
+    } else {
+
+    }
     // YOUR CODE
     // Deposit amount for email
     // return success or failure string
