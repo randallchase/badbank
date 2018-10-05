@@ -15,6 +15,26 @@
           "action": "login",
           "amount": 0,
           "timestamp": "2018-10-05T14:46:10.206Z"
+        },
+        {
+          "action": "deposit",
+          "amount": 5,
+          "timestamp": "2018-10-05T15:00:29.118Z"
+        },
+        {
+          "action": "withdraw",
+          "amount": 10,
+          "timestamp": "2018-10-05T15:04:29.173Z"
+        },
+        {
+          "action": "balance view",
+          "amount": 0,
+          "timestamp": "2018-10-05T15:21:37.685Z"
+        },
+        {
+          "action": "balance view",
+          "amount": 0,
+          "timestamp": "2018-10-05T15:42:26.424Z"
         }
       ]
     },

@@ -77,7 +77,8 @@ ui.deposit = `
     <input type="input" id="depEmail" placeholder="E-Mail Address"><br><br>
     <h6 class="card-title">Deposit</h6>
     <input type="input" id="depAmount" placeholder="Deposit Amount"><br><br>
-    <button type="button" class="btn" onclick="deposit()">Deposit</button>
+    <button type="button" data-toggle="collapse" class="btn" data-target="#collapse-collapsed" aria-expanded="false" aria-controls="collapse-collapsed" onclick="deposit()">Deposit</button>
+    <div id="collapse-collapsed" class="collapse">
   </div>
 </div>
     <!-- ------------- YOUR CODE: Deposit UI ------------- --> 
@@ -91,7 +92,8 @@ ui.withdraw = `
     <input type="input" id="withEmail" placeholder="E-Mail Address"><br><br>
     <h6 class="card-title">Withdraw</h6>
     <input type="input" id="withAmount" placeholder="Withdrawal Amount"><br><br>
-    <button type="button" class="btn" onclick="withdraw()">Withdraw</button>
+    <button type="button" data-toggle="collapse" class="btn" data-target="#collapse-collapsed" aria-expanded="false" aria-controls="collapse-collapsed" onclick="withdraw()">Withdraw</button>
+    <div id="collapse-collapsed" class="collapse">
   </div>
 </div>
     <!-- ------------- YOUR CODE: Withdraw UI ------------- --> 
@@ -103,7 +105,8 @@ ui.transactions = `
   <div class="card-body">
     <h6 class="card-title">E-Mail Address</h6>
     <input type="input" id="transEmail" placeholder="E-Mail Address"><br><br>
-    <button type="button" class="btn" onclick="transactions()">Show Transactions</button>
+    <button type="button" data-toggle="collapse" class="btn" data-target="#collapse-collapsed" aria-expanded="false" aria-controls="collapse-collapsed" onclick="transactions()">Show Transactions</button>
+    <div id="collapse-collapsed" class="collapse">
   </div>
 </div>
     <!-- ------------- YOUR CODE: Transactions UI ------------- --> 
@@ -115,7 +118,8 @@ ui.balance = `
   <div class="card-body">
     <h6 class="card-title">E-Mail Address</h6>
     <input type="input" id="balEmail" placeholder="E-Mail Address"><br><br>
-    <button type="button" class="btn" onclick="balance()">Show Balance</button>
+    <button type="button" data-toggle="collapse" class="btn" data-target="#collapse-collapsed" aria-expanded="false" aria-controls="collapse-collapsed" onclick="balance()">Show Balance</button>
+    <div id="collapse-collapsed" class="collapse">
   </div>
 </div>
     <!-- ------------- YOUR CODE: Balance UI ------------- --> 
@@ -134,12 +138,13 @@ ui.default = `
 
 ui.allData = `
 <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
-  <div class="card-header">Header</div>
+  <div class="card-header">Show All Data</div>
   <div class="card-body">
-    <h5 class="card-title">Secondary card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <button type="button" data-toggle="collapse" class="btn" data-target="#collapse-collapsed" aria-expanded="false" aria-controls="collapse-collapsed" onclick="allData()">Show All Data</button>
+    <div id="collapse-collapsed" class="collapse">
   </div>
 </div>
+<div id="data-out"></div>
     <!-- ------------- YOUR CODE: All Data UI ------------- --> 
 `;
 
