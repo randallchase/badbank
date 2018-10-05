@@ -45,9 +45,9 @@ ui.createAccount = `
     <input type="input" id="addEmail" placeholder="E-Mail Address"><br><br>
     <h6 class="card-title">Password</h6>
     <input type="password" id="addPassword" placeholder="Password"><br><br>
-    <h6 class="card-title">Confirm Password</h6>
-    <input type="password" id="checkPassword" placeholder="Confirm Password"><br><br>
-    <button type="button" class="btn" onclick="create()">Create</button>
+    <button type="button" data-toggle="collapse" class="btn" data-target="#collapse-collapsed" aria-expanded="false" aria-controls="collapse-collapsed" onclick="create()">Create</button>
+    <div id="collapse-collapsed" class="collapse">
+    </div>
   </div>
 </div>
     <!-- ------------- YOUR CODE: Create Account UI ------------- --> 
@@ -55,10 +55,15 @@ ui.createAccount = `
 
 ui.login = `
 <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
-  <div class="card-header">Header</div>
+  <div class="card-header">Login</div>
   <div class="card-body">
-    <h5 class="card-title">Secondary card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <h6 class="card-title">E-Mail Address</h6>
+    <input type="input" id="inputEmail" placeholder="E-Mail Address"><br><br>
+    <h6 class="card-title">Password</h6>
+    <input type="password" id="inputPassword" placeholder="Password"><br><br>
+    <button type="button" data-toggle="collapse" class="btn" data-target="#collapse-collapsed" aria-expanded="false" aria-controls="collapse-collapsed" onclick="login()">Login</button>
+    <div id="collapse-collapsed" class="collapse">
+    </div>
   </div>
 </div>
     <!-- ------------- YOUR CODE: Login UI ------------- --> 
@@ -66,10 +71,13 @@ ui.login = `
 
 ui.deposit = `
 <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
-  <div class="card-header">Header</div>
+  <div class="card-header">Deposit</div>
   <div class="card-body">
-    <h5 class="card-title">Secondary card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <h6 class="card-title">E-Mail Address</h6>
+    <input type="input" id="depEmail" placeholder="E-Mail Address"><br><br>
+    <h6 class="card-title">Deposit</h6>
+    <input type="input" id="depAmount" placeholder="Deposit Amount"><br><br>
+    <button type="button" class="btn" onclick="deposit()">Deposit</button>
   </div>
 </div>
     <!-- ------------- YOUR CODE: Deposit UI ------------- --> 
@@ -77,10 +85,13 @@ ui.deposit = `
 
 ui.withdraw = `
 <div class="card text-white bg-danger mb-3" style="max-width: 18rem;">
-  <div class="card-header">Header</div>
+  <div class="card-header">Withdraw</div>
   <div class="card-body">
-    <h5 class="card-title">Secondary card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <h6 class="card-title">E-Mail Address</h6>
+    <input type="input" id="withEmail" placeholder="E-Mail Address"><br><br>
+    <h6 class="card-title">Withdraw</h6>
+    <input type="input" id="withAmount" placeholder="Withdrawal Amount"><br><br>
+    <button type="button" class="btn" onclick="withdraw()">Withdraw</button>
   </div>
 </div>
     <!-- ------------- YOUR CODE: Withdraw UI ------------- --> 
@@ -88,10 +99,11 @@ ui.withdraw = `
 
 ui.transactions = `
 <div class="card text-white bg-warning mb-3" style="max-width: 18rem;">
-  <div class="card-header">Header</div>
+  <div class="card-header">Transactions</div>
   <div class="card-body">
-    <h5 class="card-title">Secondary card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <h6 class="card-title">E-Mail Address</h6>
+    <input type="input" id="transEmail" placeholder="E-Mail Address"><br><br>
+    <button type="button" class="btn" onclick="transactions()">Show Transactions</button>
   </div>
 </div>
     <!-- ------------- YOUR CODE: Transactions UI ------------- --> 
@@ -99,10 +111,11 @@ ui.transactions = `
 
 ui.balance = `
 <div class="card bg-light mb-3" style="max-width: 18rem;">
-  <div class="card-header">Header</div>
+  <div class="card-header">Balance</div>
   <div class="card-body">
-    <h5 class="card-title">Secondary card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <h6 class="card-title">E-Mail Address</h6>
+    <input type="input" id="balEmail" placeholder="E-Mail Address"><br><br>
+    <button type="button" class="btn" onclick="balance()">Show Balance</button>
   </div>
 </div>
     <!-- ------------- YOUR CODE: Balance UI ------------- --> 

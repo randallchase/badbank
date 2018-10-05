@@ -12,10 +12,18 @@ var db      = low(adapter);
 // YOUR CODE
 app.use(express.static('public'));
 
+// allow Cross-Origin Resource Sharing (CORS)
+var cors = require('cors');
+app.use(cors());
+
 // setup data store
 db.defaults({accounts: []}).write();
 // YOUR CODE
+app.get('/data', function(req, res){
 
+    res.send(db.get('accounts').value());
+
+});
 
 // required data store structure
 // YOUR CODE
@@ -30,24 +38,53 @@ db.defaults({accounts: []}).write();
     ] 
 }
 */
+function postTime() {
+    var date = new Date();
+    var timestamp = date.toISOString();
+    return timestamp
+};
+
+function checkAccounts (emailIn) {
+    return db.get('accounts').find({email:emailIn}).value() === undefined
+};
 
 app.get('/accounts/create/:name/:email/:password', function (req, res) {
-
     var newAccount = {'name'        : req.params.name,
                       'email'       : req.params.email,
                       'balance'     : 0,
                       'password'    : req.params.password,
-                      'transactions': ['Account Created']};
+                      'transactions': [{'action'    : 'create',
+                                        'amount'    : '0',
+                                        'timestamp' : postTime()}]};
+    if (checkAccounts(newAccount.email)) {
+        db.get('accounts').push(newAccount).write();
+        console.log(db.get('accounts').value());
+        res.send(db.get('accounts').value());
+    } else {
+        console.log('Account exists')
+        res.send('Account already exists')
+    }
 
-    db.get('accounts').push(newAccount).write();
-    console.log(db.get('accounts').value());
-    res.send(db.get('accounts').value());
     // YOUR CODE
     // Create account route
     // return success or failure string
 });
 
 app.get('/accounts/login/:email/:password', function (req, res) {
+    var loginAcct = {'email'   : req.params.email,
+                     'password': req.params.password}
+    var account = db.get('accounts').find({email   : loginAcct.email,
+                                           password: loginAcct.password}).value();
+    if (account === undefined) {
+        res.send('This username/password combo does not exist. Please try again.');
+    } else {
+        var loginTransaction = {'action'    : 'login',
+                                'amount'    : 0,
+                                'timestamp' : postTime()};
+        db.get('accounts').find({email   : loginAcct.email,
+                                 password: loginAcct.password}).get('transactions').push(loginTransaction).write();
+        res.send(account);
+    }
 
     // YOUR CODE
     // Login user - confirm credentials

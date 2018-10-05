@@ -1,5 +1,12 @@
+/* functionality to validate whether the account exists.
+------------------
+function checkAccounts (emailIn) {
+    return db.get('accounts').find({email:emailIn}).value() === undefined
+};
+*/
 
 function create() {
+    var status = document.getElementById('collapse-collapsed');
     var obj = {
         name    : document.getElementById("addUserName").value,
         email   : document.getElementById("addEmail").value,
@@ -12,13 +19,16 @@ function create() {
         .end(function(err, res){
             if(err){
                 console.log(err);
+                status.innerHTML = res.text;
             }
             else{
                 console.log(res);
-                status.innerHTML = JSON.stringify(res.body);
+                status.innerHTML = res.text;
+
             }
 
-        });
+    });
+
     // -------------------------------------
     //  YOUR CODE
     //  Create user account on server
@@ -26,6 +36,24 @@ function create() {
 }
 
 function login() {
+    // superagent auth
+    var status = document.getElementById('collapse-collapsed');
+    var obj = {
+        email   : document.getElementById("inputEmail").value,
+        password: document.getElementById("inputPassword").value};
+    var url = "/accounts/login/" + obj.name + "/" +obj.email;
+
+
+    superagent
+        .get(url)
+        .end(function(err, res) {
+            if (err) {
+                console.log(err);
+                status.innerHTML = res.text;
+            } else {
+                status.innerHTML = 'Login Complete';
+            }
+        });
     // -------------------------------------
     //  YOUR CODE
     //  Confirm credentials on server
