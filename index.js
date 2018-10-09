@@ -53,8 +53,8 @@ function logTransaction (dbase, email, action, amount) {
     };
 
     var transaction  = {'action'     : action,
-                       'amount'     : amount,
-                       'timestamp'  : postTime()}
+                        'amount'     : Number(amount),
+                        'timestamp'  : postTime()}
     dbase.get('accounts')
         .find({email: email})
         .get('transactions')
@@ -76,7 +76,7 @@ app.get('/accounts/create/:name/:email/:password', function (req, res) {
                       'transactions': []};
     if (checkAccounts(newAccount.email)) {
         db.get('accounts').push(newAccount).write();
-        logTransaction(db, newAccount.email, 'create', Number(0));
+        logTransaction(db, newAccount.email, 'create', 0);
         console.log(db.get('accounts').value());
         res.send('Success! Account Created.');
     } else {
@@ -185,6 +185,6 @@ app.get('/accounts/all', function (req, res) {
 });
 
 
-app.listen(3000, function(){
-    console.log('Running on port: 3000')
+app.listen(80, function(){
+    console.log('Running on port: 80')
 });

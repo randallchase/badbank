@@ -1,79 +1,45 @@
 {
   "accounts": [
     {
-      "name": "r",
-      "email": "m@mail",
-      "balance": 0,
+      "name": "Randall",
+      "email": "randall@mail.com",
+      "balance": -10,
       "password": "pass",
       "transactions": [
         {
           "action": "create",
-          "amount": "0",
-          "timestamp": "2018-10-05T05:23:12.855Z"
+          "amount": 0,
+          "timestamp": "2018-10-09T11:57:10.397Z"
         },
         {
           "action": "login",
           "amount": 0,
-          "timestamp": "2018-10-05T14:46:10.206Z"
+          "timestamp": "2018-10-09T11:57:21.131Z"
         },
         {
           "action": "deposit",
           "amount": 5,
-          "timestamp": "2018-10-05T15:00:29.118Z"
+          "timestamp": "2018-10-09T11:57:31.827Z"
+        },
+        {
+          "action": "balance view",
+          "amount": 0,
+          "timestamp": "2018-10-09T11:57:45.943Z"
         },
         {
           "action": "withdraw",
-          "amount": 10,
-          "timestamp": "2018-10-05T15:04:29.173Z"
+          "amount": 15,
+          "timestamp": "2018-10-09T11:57:54.361Z"
         },
         {
           "action": "balance view",
           "amount": 0,
-          "timestamp": "2018-10-05T15:21:37.685Z"
+          "timestamp": "2018-10-09T11:58:02.740Z"
         },
         {
-          "action": "balance view",
+          "action": "audit",
           "amount": 0,
-          "timestamp": "2018-10-05T15:42:26.424Z"
-        }
-      ]
-    },
-    {
-      "name": "R",
-      "email": "r@mail",
-      "balance": 0,
-      "password": "pass",
-      "transactions": [
-        {
-          "action": "create",
-          "amount": "0",
-          "timestamp": "2018-10-05T05:30:18.728Z"
-        }
-      ]
-    },
-    {
-      "name": "R",
-      "email": "a@mail",
-      "balance": 0,
-      "password": "pass",
-      "transactions": [
-        {
-          "action": "create",
-          "amount": 0,
-          "timestamp": "2018-10-05T14:24:53.839Z"
-        }
-      ]
-    },
-    {
-      "name": "R",
-      "email": "b@mail",
-      "balance": 0,
-      "password": "pass",
-      "transactions": [
-        {
-          "action": "create",
-          "amount": 0,
-          "timestamp": "2018-10-05T14:36:32.479Z"
+          "timestamp": "2018-10-09T11:58:12.743Z"
         }
       ]
     }
